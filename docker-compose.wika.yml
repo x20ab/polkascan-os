@@ -119,7 +119,7 @@ services:
         NETWORK_NAME: Wika TestNet
         NETWORK_ID: wika
         NETWORK_TYPE: pre
-        CHAIN_TYPE: relay
+        CHAIN_TYPE: para
         NETWORK_TOKEN_SYMBOL: WIKA
         NETWORK_TOKEN_DECIMALS: 12
         NETWORK_COLOR_CODE: 777777
