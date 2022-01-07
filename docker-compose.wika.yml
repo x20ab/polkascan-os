@@ -19,7 +19,7 @@ services:
       - DB_NAME=polkascan
       - SUBSTRATE_RPC_URL=http://substrate-node:9933/
       - SUBSTRATE_ADDRESS_TYPE=42
-      - TYPE_REGISTRY=kusama
+      - TYPE_REGISTRY_FILE=app/type_registry/custom_types.json
       - SUBSTRATE_METADATA_VERSION=9
     depends_on:
       - mysql
@@ -43,10 +43,12 @@ services:
       - DB_PASSWORD=root
       - DB_NAME=polkascan
       - SUBSTRATE_RPC_URL=http://substrate-node:9933/
-      - TYPE_REGISTRY=kusama
+      - TYPE_REGISTRY_FILE=app/type_registry/custom_types.json
       - SUBSTRATE_ADDRESS_TYPE=42
       - SUBSTRATE_METADATA_VERSION=9
       - NEW_SESSION_EVENT_HANDLER=True
+      - SUBSTRATE_STORAGE_BALANCE=Account
+      - SUBSTRATE_STORAGE_INDICES=Accounts
     depends_on:
       - redis
       - mysql
@@ -101,7 +103,7 @@ services:
   substrate-node:
     image: x20ab/wikanode:latest
     hostname: substrate-node
-    command: --name "x20ab" --dev --unsafe-ws-external --rpc-cors=all  --rpc-external --ws-external --pruning=archive
+    command: --name "x20ab" --dev --db-cache=2048 --wasm-execution=Compiled --unsafe-ws-external --rpc-cors=all  --rpc-external --ws-external --pruning=archive
     volumes:
       - 'substrate-data:/data'
     ports:
@@ -120,7 +122,7 @@ services:
         CHAIN_TYPE: relay
         NETWORK_TOKEN_SYMBOL: WIKA
         NETWORK_TOKEN_DECIMALS: 12
-        NETWORK_COLOR_CODE: d32e79
+        NETWORK_COLOR_CODE: 777777
         API_URL: http://127.0.0.1:8080/api/v1
     ports:
       - '8080:80'
