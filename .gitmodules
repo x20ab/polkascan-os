@@ -5,7 +5,8 @@
 [submodule "explorer-api"]
 	path = explorer-api
 	url = https://github.com/x20ab/polkascan-pre-explorer-api.git
-	
+	branch= wikascan
 [submodule "explorer-gui"]
 	path = explorer-gui
 	url = https://github.com/x20ab/polkascan-pre-explorer-gui.git
+	branch= wikascan
