@@ -103,7 +103,7 @@ services:
   substrate-node:
     image: x20ab/wikanode:latest
     hostname: substrate-node
-    command: --name "x20ab" --dev --db-cache=2048 --wasm-execution=Compiled --unsafe-ws-external --rpc-cors=all  --rpc-external --ws-external --pruning=archive
+    command: --name "x20ab" --db-cache=2048 --wasm-execution=Compiled --unsafe-ws-external --rpc-cors=all  --rpc-external --ws-external --pruning=archive
     volumes:
       - 'substrate-data:/data'
     ports:
